@@ -1,12 +1,15 @@
 import React from 'react';
-import Header from './Header';
+import Quote from './Quote';
 // import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <Header />
+      <header>
+        <h1>Inspirational Quote</h1>
+      </header>
+      <Quote />
     </div>
   );
 }
