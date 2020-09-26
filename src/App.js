@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import Quote from './Quote';
-// import logo from './logo.svg';
-// import './App.css';
 
 function App() {
   return (

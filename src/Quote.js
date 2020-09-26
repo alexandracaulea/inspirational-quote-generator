@@ -96,7 +96,7 @@ const BlockquoteWrapper = styled.h2`
   font-size: 2.3rem;
   font-style: italic;
   font-weight: normal;
-  line-height: 52px;
+  line-height: 1.4;
 `;
 
 const Author = styled.p`
@@ -125,8 +125,8 @@ const QuoteButton = styled.button`
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   color: #fff;
   cursor: pointer;
-  font-size: 18px;
-  padding: 12px 19px;
+  font-size: 1.1em;
+  padding: 0.7em 1em;
 
   &:hover {
     opacity: 0.8;
