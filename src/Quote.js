@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const PROXI = 'https://polar-caverns-16644.herokuapp.com/';
+// eslint-disable-next-line operator-linebreak
 const API_URL =
   'https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json&jsonp=?';
 const TWITTER_URL = 'https://twitter.com/intent/tweet/';
@@ -17,6 +18,10 @@ class Quote extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
+  async componentDidMount() {
+    this.fetchQuote();
+  }
+
   async fetchQuote() {
     try {
       const res = await fetch(`${PROXI}${API_URL}`);
@@ -29,10 +34,6 @@ class Quote extends Component {
     } catch (err) {
       console.log(err);
     }
-  }
-
-  async componentDidMount() {
-    this.fetchQuote();
   }
 
   handleClick() {
