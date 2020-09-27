@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import axios from 'axios';
 import screenReaderTextStyle from './mixins';
 
 const PROXI = 'https://polar-caverns-16644.herokuapp.com/';
 // eslint-disable-next-line operator-linebreak
 const API_URL =
-  'https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json&jsonp=?';
+  'https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json';
 const TWITTER_URL = 'https://twitter.com/intent/tweet/';
 
 class Quote extends Component {
@@ -25,15 +26,28 @@ class Quote extends Component {
 
   async fetchQuote() {
     try {
-      const res = await fetch(`${PROXI}${API_URL}`);
-      const data = await res.json();
-      this.setState({
-        quoteText: data.quoteText,
-        quoteAuthor: data.quoteAuthor,
-        isLoading: false,
-      });
-    } catch (err) {
-      console.log(err);
+      const response = await axios.get(`${PROXI}${API_URL}`);
+      const data = await response.data;
+      // If the response received from the API is a string
+      if (typeof data === 'string') {
+        // Replace all backslash characters with an empty string
+        const stripped = data.replace(/\\/g, '');
+        // Convert the resulted string to an object
+        const convertToObject = JSON.parse(stripped);
+        this.setState({
+          quoteText: convertToObject.quoteText,
+          quoteAuthor: convertToObject.quoteAuthor,
+          isLoading: false,
+        });
+      } else {
+        this.setState({
+          quoteText: data.quoteText,
+          quoteAuthor: data.quoteAuthor,
+          isLoading: false,
+        });
+      }
+    } catch (error) {
+      console.log(error);
     }
   }
 
