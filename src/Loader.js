@@ -1,13 +1,11 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
-function Loader() {
-  return (
-    <LoaderWrapper>
-      <LoaderComponent />
-    </LoaderWrapper>
-  );
-}
+const LoaderWrapper = styled.div`
+  align-items: center;
+  display: flex;
+  min-height: 250px;
+`;
 
 const LoaderAnimation = keyframes`
     0%,
@@ -37,12 +35,6 @@ const LoaderAnimation = keyframes`
   }
 `;
 
-const LoaderWrapper = styled.div`
-  align-items: center;
-  display: flex;
-  min-height: 250px;
-`;
-
 const LoaderComponent = styled.div`
   animation: ${LoaderAnimation} 1.1s infinite ease;
   border-radius: 50%;
@@ -53,5 +45,13 @@ const LoaderComponent = styled.div`
   width: 1em;
 }
 `;
+
+function Loader() {
+  return (
+    <LoaderWrapper>
+      <LoaderComponent />
+    </LoaderWrapper>
+  );
+}
 
 export default Loader;

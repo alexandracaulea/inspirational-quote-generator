@@ -3,10 +3,61 @@ import styled, { keyframes } from 'styled-components';
 import Quote from './Quote';
 import screenReaderTextStyle from './mixins';
 
+const AppContainer = styled.div`
+  color: #656565;
+  margin: 0 auto;
+  max-width: 600px;
+  min-height: 100vh;
+  padding: 1rem;
+`;
+
+const OctoArm = styled.path`
+  transform-origin: 130px 106px;
+  fill: #f9f9f9;
+`;
+
+const GitHubAnimation = keyframes`
+  0%, 100% {
+    transform: rotate(0);
+  }
+
+  20%, 60% {
+    transform: rotate(-25deg);
+  }
+
+  40%, 80% {
+    transform: rotate(10deg);
+  }
+`;
+
+const GitHubIcon = styled.a`
+  border: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  &:hover ${OctoArm} {
+    animation: ${GitHubAnimation} 500ms ease-in-out;
+  }
+`;
+
+const ScreenReaderText = styled.span`
+  ${screenReaderTextStyle};
+`;
+
+const Header = styled.h1`
+  font-family: 'Lato', sans-serif;
+  font-size: 3.5rem;
+  font-weight: normal;
+  line-height: 1.1;
+  margin-bottom: 70px;
+  margin-top: 70px;
+  text-align: center;
+`;
+
 function App() {
   return (
-    <AppStyled>
-      <GitHubCorner
+    <AppContainer>
+      <GitHubIcon
         href="https://github.com/alexandracaulea/inspirational-quote-generator"
         aria-label="View source on GitHub"
       >
@@ -25,62 +76,11 @@ function App() {
             fill="#f9f9f9"
           />
         </svg>
-      </GitHubCorner>
+      </GitHubIcon>
       <Header>Inspirational Quote</Header>
       <Quote />
-    </AppStyled>
+    </AppContainer>
   );
 }
-
-const AppStyled = styled.div`
-  color: #656565;
-  margin: 0 auto;
-  max-width: 600px;
-  min-height: 100vh;
-  padding: 1rem;
-`;
-
-const Header = styled.h1`
-  font-family: 'Lato', sans-serif;
-  font-size: 3.5rem;
-  font-weight: normal;
-  line-height: 1.1;
-  margin-bottom: 70px;
-  margin-top: 70px;
-  text-align: center;
-`;
-
-const OctoWave = keyframes`
-  0%, 100% {
-    transform: rotate(0);
-  }
-
-  20%, 60% {
-    transform: rotate(-25deg);
-  }
-
-  40%, 80% {
-    transform: rotate(10deg);
-  }
-`;
-
-const OctoArm = styled.path`
-  transform-origin: 130px 106px;
-  fill: #f9f9f9;
-`;
-
-const GitHubCorner = styled.a`
-  border: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  &:hover ${OctoArm} {
-    animation: ${OctoWave} 500ms ease-in-out;
-  }
-`;
-
-const ScreenReaderText = styled.span`
-  ${screenReaderTextStyle};
-`;
 
 export default App;

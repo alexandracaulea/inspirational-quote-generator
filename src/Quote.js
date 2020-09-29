@@ -4,6 +4,61 @@ import axios from 'axios';
 import Loader from './Loader';
 import screenReaderTextStyle from './mixins';
 
+const Blockquote = styled.blockquote`
+  margin: 0;
+  min-height: 250px;
+`;
+
+const Header = styled.h2`
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 -6px 0 hsla(331, 37%, 54%, 0.144);
+  color: #b55d88;
+  display: inline;
+  font-family: 'Crimson Text', serif;
+  font-size: 2.3rem;
+  font-style: italic;
+  font-weight: normal;
+  line-height: 1.4;
+`;
+
+const Author = styled.p`
+  color: #9b5074;
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+  text-align: right;
+  text-transform: uppercase;
+`;
+
+const Container = styled.div`
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+`;
+
+const TweetLink = styled.a`
+  text-decoration: none;
+`;
+
+const ScreenReaderText = styled.span`
+  ${screenReaderTextStyle};
+`;
+
+const QuoteButton = styled.button`
+  background-color: #726a95;
+  border-radius: 3px;
+  border: none;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.1em;
+  padding: 0.7em 1em;
+
+  &:hover {
+    opacity: 0.8;
+  }
+`;
+
 const PROXI = 'https://polar-caverns-16644.herokuapp.com/';
 // eslint-disable-next-line operator-linebreak
 const API_URL =
@@ -62,14 +117,12 @@ class Quote extends Component {
     return (
       <section id="quote-box">
         <Blockquote>
-          <BlockquoteWrapper id="text">
-            {isLoading ? <Loader /> : quoteText}
-          </BlockquoteWrapper>
+          <Header id="text">{isLoading ? <Loader /> : quoteText}</Header>
           <footer>
             {!isLoading && <Author id="author">{quoteAuthor}</Author>}
           </footer>
         </Blockquote>
-        <StyledContainer>
+        <Container>
           <TweetLink
             id="tweet-quote"
             href={`${TWITTER_URL}?text="${quoteText}" - ${quoteAuthor}&hashtags=inspirationalquotes`}
@@ -94,65 +147,10 @@ class Quote extends Component {
           <QuoteButton id="new-quote" onClick={this.handleClick}>
             New Quote
           </QuoteButton>
-        </StyledContainer>
+        </Container>
       </section>
     );
   }
 }
-
-const Blockquote = styled.blockquote`
-  margin: 0;
-  min-height: 250px;
-`;
-
-const BlockquoteWrapper = styled.h2`
-  background-color: rgba(255, 255, 255, 0.8);
-  box-shadow: 0 -6px 0 hsla(331, 37%, 54%, 0.144);
-  color: #b55d88;
-  display: inline;
-  font-family: 'Crimson Text', serif;
-  font-size: 2.3rem;
-  font-style: italic;
-  font-weight: normal;
-  line-height: 1.4;
-`;
-
-const Author = styled.p`
-  color: #9b5074;
-  font-family: 'Lato', sans-serif;
-  font-weight: bold;
-  text-align: right;
-  text-transform: uppercase;
-`;
-
-const StyledContainer = styled.div`
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  margin-top: 1.5rem;
-`;
-
-const TweetLink = styled.a`
-  text-decoration: none;
-`;
-
-const QuoteButton = styled.button`
-  background-color: #726a95;
-  border-radius: 3px;
-  border: none;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-  color: #fff;
-  cursor: pointer;
-  font-size: 1.1em;
-  padding: 0.7em 1em;
-
-  &:hover {
-    opacity: 0.8;
-  }
-`;
-
-const ScreenReaderText = styled.span`
-  ${screenReaderTextStyle};
-`;
 
 export default Quote;
