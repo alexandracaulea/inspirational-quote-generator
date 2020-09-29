@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
+import Loader from './Loader';
 import screenReaderTextStyle from './mixins';
 
 const PROXI = 'https://polar-caverns-16644.herokuapp.com/';
@@ -52,6 +53,7 @@ class Quote extends Component {
   }
 
   handleClick() {
+    this.setState({ isLoading: true });
     this.fetchQuote();
   }
 
@@ -61,10 +63,10 @@ class Quote extends Component {
       <section id="quote-box">
         <Blockquote>
           <BlockquoteWrapper id="text">
-            {isLoading ? 'Loading data' : quoteText}
+            {isLoading ? <Loader /> : quoteText}
           </BlockquoteWrapper>
           <footer>
-            <Author id="author">{quoteAuthor}</Author>
+            {!isLoading && <Author id="author">{quoteAuthor}</Author>}
           </footer>
         </Blockquote>
         <StyledContainer>
