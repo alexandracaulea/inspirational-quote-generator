@@ -136,7 +136,7 @@ class Quote extends Component {
   render() {
     const { isLoading, quoteText, quoteAuthor } = this.state;
     return (
-      <section id="quote-box">
+      <section id="quote-box" aria-live="polite">
         <Blockquote>
           <Header id="text">{isLoading ? <Loader /> : quoteText}</Header>
           <footer>
@@ -164,7 +164,7 @@ class Quote extends Component {
                 fill="#1DA1F2"
               />
             </svg>
-            <ScreenReaderText>Twitter</ScreenReaderText>
+            <ScreenReaderText>Tweet this quote!</ScreenReaderText>
           </TweetLink>
           <QuoteButton id="new-quote" onClick={this.handleClick}>
             Get New Quote
