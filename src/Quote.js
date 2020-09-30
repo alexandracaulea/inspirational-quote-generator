@@ -107,7 +107,7 @@ class Quote extends Component {
       // If the response received from the API is a string
       if (typeof data === 'string') {
         // Replace all backslash characters with an empty string
-        const stripped = data.replace(/\\/g, '');
+        const stripped = data.replace(/[\\W_]+/g, '');
         // Convert the resulted string to an object
         const convertToObject = JSON.parse(stripped);
         this.setState({
