@@ -38,6 +38,16 @@ const Container = styled.div`
 
 const TweetLink = styled.a`
   text-decoration: none;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-in-out;
+  border-radius: 50%;
+  &:hover {
+    background-color: rgba(29, 161, 242, 0.1);
+  }
 `;
 
 const ScreenReaderText = styled.span`
@@ -53,9 +63,19 @@ const QuoteButton = styled.button`
   cursor: pointer;
   font-size: 1.1em;
   padding: 0.7em 1em;
+  transition: all 0.175s ease-in-out;
 
   &:hover {
     opacity: 0.8;
+  }
+
+  &:focus {
+    background-color: #585274;
+  }
+
+  &:active {
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    background-color: #605a7d;
   }
 `;
 

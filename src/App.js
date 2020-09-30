@@ -35,8 +35,22 @@ const GitHubIcon = styled.a`
   position: absolute;
   right: 0;
   top: 0;
+  transition: all 0.2s ease-in-out;
+
   &:hover ${OctoArm} {
     animation: ${GitHubAnimation} 500ms ease-in-out;
+  }
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  &:active svg {
+    fill: #605a7d;
+  }
+
+  &:focus svg {
+    fill: #585274;
   }
 `;
 
