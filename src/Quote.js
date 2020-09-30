@@ -18,6 +18,7 @@ const Header = styled.h2`
   font-size: 2.3rem;
   font-style: italic;
   font-weight: normal;
+  letter-spacing: 1px;
   line-height: 1.4;
 `;
 
@@ -145,6 +146,7 @@ class Quote extends Component {
         <Container>
           <TweetLink
             id="tweet-quote"
+            title="Tweet this quote!"
             href={`${TWITTER_URL}?text="${quoteText}" - ${quoteAuthor}&hashtags=inspirationalquotes`}
             target="_blank"
             rel="noopener noreferrer"
@@ -165,7 +167,7 @@ class Quote extends Component {
             <ScreenReaderText>Twitter</ScreenReaderText>
           </TweetLink>
           <QuoteButton id="new-quote" onClick={this.handleClick}>
-            New Quote
+            Get New Quote
           </QuoteButton>
         </Container>
       </section>
