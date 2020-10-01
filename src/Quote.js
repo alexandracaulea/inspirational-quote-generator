@@ -6,16 +6,16 @@ import screenReaderTextStyle from './mixins';
 
 const Blockquote = styled.blockquote`
   margin: 0;
-  min-height: 250px;
+  min-height: 15.625rem;
 `;
 
 const Header = styled.h2`
   background-color: rgba(255, 255, 255, 0.8);
-  box-shadow: 0 -6px 0 hsla(331, 37%, 54%, 0.144);
+  box-shadow: 0 -0.15em 0 hsla(331, 37%, 54%, 0.144);
   color: #b55d88;
   display: inline;
   font-family: 'Crimson Text', serif;
-  font-size: 2.3rem;
+  font-size: 2.3em;
   font-style: italic;
   font-weight: normal;
   letter-spacing: 1px;
@@ -39,13 +39,14 @@ const Container = styled.div`
 
 const TweetLink = styled.a`
   text-decoration: none;
-  width: 60px;
-  height: 60px;
+  width: 3.75em;
+  height: 3.75em;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.2s ease-in-out;
   border-radius: 50%;
+
   &:hover {
     background-color: rgba(29, 161, 242, 0.1);
   }
@@ -87,8 +88,8 @@ const API_URL =
 const TWITTER_URL = 'https://twitter.com/intent/tweet/';
 
 class Quote extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       quoteText: '',
       quoteAuthor: '',
@@ -140,7 +141,11 @@ class Quote extends Component {
         <Blockquote>
           <Header id="text">{isLoading ? <Loader /> : quoteText}</Header>
           <footer>
-            {!isLoading && <Author id="author">{quoteAuthor}</Author>}
+            {!isLoading && (
+              <Author id="author">
+                {quoteAuthor === '' ? 'unknown' : quoteAuthor}
+              </Author>
+            )}
           </footer>
         </Blockquote>
         <Container>

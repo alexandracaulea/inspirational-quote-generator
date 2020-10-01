@@ -6,13 +6,13 @@ import screenReaderTextStyle from './mixins';
 const AppContainer = styled.div`
   color: #656565;
   margin: 0 auto;
-  max-width: 600px;
+  max-width: 37rem;
   min-height: 100vh;
   padding: 1rem;
 `;
 
 const GitHubIconArm = styled.path`
-  transform-origin: 130px 106px;
+  transform-origin: 8em 6em;
   fill: #f9f9f9;
 `;
 
@@ -32,8 +32,8 @@ const GitHubAnimation = keyframes`
 
 const GitHubIcon = styled.svg`
   fill: #726a95;
-  height: 70px;
-  width: 70px;
+  height: 4.375em;
+  width: 4.375em;
 `;
 
 const GitHubLink = styled.a`
@@ -44,7 +44,7 @@ const GitHubLink = styled.a`
   transition: all 0.2s ease-in-out;
 
   &:hover ${GitHubIconArm} {
-    animation: ${GitHubAnimation} 500ms ease-in-out;
+    animation: ${GitHubAnimation} 0.5s ease-in-out;
   }
 
   &:hover {
@@ -66,11 +66,11 @@ const ScreenReaderText = styled.span`
 
 const Header = styled.h1`
   font-family: 'Lato', sans-serif;
-  font-size: 3.5rem;
+  font-size: 3.5em;
   font-weight: normal;
   line-height: 1.1;
-  margin-bottom: 70px;
-  margin-top: 70px;
+  margin-bottom: 4.375rem;
+  margin-top: 4.375rem;
   text-align: center;
 `;
 

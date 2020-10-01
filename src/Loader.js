@@ -4,7 +4,7 @@ import styled, { keyframes } from 'styled-components';
 const LoaderWrapper = styled.div`
   align-items: center;
   display: flex;
-  min-height: 250px;
+  min-height: 15.625rem;
 `;
 
 const LoaderAnimation = keyframes`
