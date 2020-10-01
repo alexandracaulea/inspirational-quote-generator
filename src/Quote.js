@@ -114,13 +114,13 @@ class Quote extends Component {
         const convertToObject = JSON.parse(stripped);
         this.setState({
           quoteText: convertToObject.quoteText,
-          quoteAuthor: convertToObject.quoteAuthor,
+          quoteAuthor: convertToObject.quoteAuthor || 'unknown',
           isLoading: false,
         });
       } else {
         this.setState({
           quoteText: data.quoteText,
-          quoteAuthor: data.quoteAuthor,
+          quoteAuthor: data.quoteAuthor || 'unknown',
           isLoading: false,
         });
       }
