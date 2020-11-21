@@ -18,3 +18,5 @@ This is a work in progress project that I will update daily, so to the code will
 3. To run tests: `yarn test`.
 4. To build: `yarn build`.
 5. To eject `yarn eject`
+
+![](inspirational-quote-generator.gif.gif)
