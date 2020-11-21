@@ -1,10 +1,8 @@
 # Inspirational Quote Generator
 
-On September 22, 2020 I committed to #100DaysOfFrontEnd where I’ll be sharing everything I’m working on related to frontend development.
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f70cf9ce-6382-4884-bacd-72d9b0e4d4ae/deploy-status)](https://app.netlify.com/sites/inspirational-quote-generator/deploys)
 
 Since I'm currently learning React, I decided to start working on the "Build a Random Quote Machine" project part of the [Front End Libraries Projects](https://www.freecodecamp.org/learn/front-end-libraries/front-end-libraries-projects/build-a-random-quote-machine) from freeCodeCamp.
-
-This is a work in progress project that I will update daily, so to the code will change.
 
 ### Installation
 
@@ -19,4 +17,8 @@ This is a work in progress project that I will update daily, so to the code will
 4. To build: `yarn build`.
 5. To eject `yarn eject`
 
-![](inspirational-quote-generator.gif.gif)
+### Live Example
+
+[Live example on Netlify](https://inspirational-quote-generator.netlify.app/)
+
+![](inspirational-quote-generator.gif)
